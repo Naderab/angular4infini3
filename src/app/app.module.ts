@@ -8,6 +8,10 @@ import { ProductsComponent } from './products/products.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FormsModule } from '@angular/forms';
+import { ProductService } from './services/product.service';
+import { TodolistComponent } from './todolist/todolist.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductsComponent,
     FooterComponent,
     FormProductComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductDetailsComponent,
+    TodolistComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

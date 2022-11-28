@@ -17,10 +17,13 @@
         <td>
             <button (click)="Buy(p.id)" [disabled]="p.quantity == 0">Buy</button>
             <button (click)="Like(p.id)">Like</button>
+            <button [routerLink]="['/product/',p.id]">To Details</button>
+            
         </td>
         <td *ngIf="p.like >= 10">Best Product</td>
     </tr>
 
 </table>
 
-
+<button (click)="verif()">verifier</button>
+{{sinda}}

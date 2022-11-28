@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>userid</th>
+        <th>title</th>
+        <th>completed</th>
+       
+    </tr>
+    <tr *ngFor="let p of todolist">
+        <td>{{p.id}}</td>
+        <td>{{p.userId}}</td>
+        <td>{{p.title}}</td>
+        <td>{{p.completed}}</td>
+    </tr>
+
+</table>
+<button (click)="bilan()">bilan</button>
+{{n}}
+
+
+       

@@ -1,1 +1,35 @@
-<p>form-product works!</p>
+<form #form="ngForm" (ngSubmit)="ajouter()">
+    <div class="form-group">
+        <label>Title :</label>
+        <input class="form-control" type="text" name="title" #title="ngModel" [(ngModel)]="product.title" required minlength="3">
+    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">    
+        <div *ngIf="title.errors?.['required']">Title is required</div>
+        <div *ngIf="title.errors?.['minlength']">Title must have at least 3 characters</div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label>Price :</label>
+        <input class="form-control" type="number" name="price" [(ngModel)]="product.price" required min="0">
+    </div>
+    <div class="form-group">
+        <label>Quantity :</label>
+        <input class="form-control" type="number" name="quantity" [(ngModel)]="product.quantity" required min="0">
+    </div>
+    <div class="form-group">
+        <label>Picture :</label>
+        <input class="form-control" type="text" name="picture" [(ngModel)]="product.picture" required>
+    </div>
+    <!--<div class="form-group">
+        <label>Email :</label>
+        <input class="form-control" type="text" name="mail" #mail="ngModel" [(ngModel)]="email" pattern="[a-zA-Z][a-zA-Z0-9.-_]+@[a-zA-Z]+\.[a-zA-Z]{2,4}">
+        <div class="alert alert-danger" *ngIf="mail.touched && mail.invalid">    
+            <div *ngIf="mail.errors?.['pattern']">Email invalid</div>
+        </div>
+    </div>-->
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Save" [disabled]="form.invalid">
+    </div>
+</form>
+{{product.title}}<br>
+{{product.price}}<br>
+{{product.quantity}}

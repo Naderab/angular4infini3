@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/product';
+import { ProductService } from '../services/product.service';
+import { CalculserviceService } from '../services/calculservice.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
   title:string = 'Welcome to products page !'
   productList!: Product[];
-  constructor() { }
+  constructor(private productService:ProductService , private calculservice:CalculserviceService) { }
 
   ngOnInit(): void {
-    this.productList = [
-      {id:1,title:'T-Shirt 1',price:100,quantity:20,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'},
-      {id:2,title:'T-Shirt 2',price:50,quantity:0,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'},
-      {id:3,title:'T-Shirt 3',price:50,quantity:0,like:0,picture:'https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395'}
-    ];
+    this.productList = this.productService.productListService;
   }
 
   Buy(id:number){
@@ -34,6 +32,11 @@ export class ProductsComponent implements OnInit {
         this.productList[i].like++;
       }
     }
+  }
+  sinda !:number;
+  verif()
+  {
+    this.sinda=this.calculservice.getNumberOf(this.productList,"quantity",0);
   }
 
 
