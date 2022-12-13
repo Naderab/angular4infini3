@@ -9,6 +9,7 @@ import { TodolistComponent } from './todolist/todolist.component';
 const routes: Routes = [
   {path:'products',component:ProductsComponent},
   {path:'addProduct',component:FormProductComponent},
+  {path:'updateProduct/:id',component:FormProductComponent},
   {path:'product/:id',component:ProductDetailsComponent},
   {path:'',redirectTo:'products',pathMatch:'full'},
   {path:'todolist',component:TodolistComponent},

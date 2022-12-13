@@ -1,4 +1,4 @@
-{{title}}
+<!--{{title}}
 <table>
     <tr>
         <th>ID</th>
@@ -17,8 +17,11 @@
         <td>
             <button (click)="Buy(p.id)" [disabled]="p.quantity == 0">Buy</button>
             <button (click)="Like(p.id)">Like</button>
+            <button (click)="delete(p.id)">Delete</button>
+
             <button [routerLink]="['/product/',p.id]">To Details</button>
-            
+            <button [routerLink]="['/updateProduct/',p.id]">Update</button>
+
         </td>
         <td *ngIf="p.like >= 10">Best Product</td>
     </tr>
@@ -26,4 +29,11 @@
 </table>
 
 <button (click)="verif()">verifier</button>
-{{sinda}}
+{{sinda}}-->
+
+<div class="container">
+    <div class="row">
+        <app-product *ngFor="let p of productList"  [product]="p" (incLike)="Like($event)"></app-product>
+        </div>
+    
+    </div>

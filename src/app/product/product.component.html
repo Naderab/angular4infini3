@@ -1,0 +1,13 @@
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;" >
+        <img src={{product.picture}} class="card-img-top" alt="..." height="350">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title|uppercase}}</h5>
+          <p class="card-text"><strong>Price :</strong>{{product.price}}</p>
+          <p class="card-text"><strong>Quantity :</strong>{{product.quantity}}</p>
+          <p class="card-text"><strong>Like :</strong>{{product.like}}</p>
+          <button class="btn btn-primary" (click)="Like()">Like</button>
+          <p class="card-text" *ngIf="product.like>10">Best Product</p>
+        </div>
+      </div>
+</div>
